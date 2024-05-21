@@ -173,7 +173,65 @@ Networking Basics
 Switching
 ----------
 system A ----------------------switch------------------------->system B
+192.168.1.10                   192.168.1.0                     192.162.1.11
 
+switch create a network containing the two system. Two connect both system to
+swithc we need interface from each host physical or virtual depending
+on the host.
+To see the interfaces for the host you can use ip link command.
+
+>> ip link
+
+we asssign the both system ip address on the same network
+>> ip addr add 192.168.1.10/24 dev eth0
+>> ip addr add 192.168.1.11/24 dev eth0
+
+Now computer will communicate to each other through switch.
+>> ping 192.168.1.11
+Reply from 192.168.1.11: byte=32 time=4ms TTL=117
+
+Switch works with same networks, recieve packet from one system
+and deliever to other system.
+
+Router
+-------------
+How to connect sytem on network 1 to network 2. Here router will come to rescue.
+
+
+system A ----------------------switch------------------------->system B
+192.168.1.10                   192.168.1.0                     192.162.1.11
+                                   |
+                                   |
+                                   Router
+                                   |
+                                   |
+system C ----------------------switch------------------------->system D
+192.168.2.10                   192.168.2.0                     192.162.2.11
+
+
+>> route    To see routing configuration
+
+Gateway
+----------
+create gateway via router to reach system A to sytem D
+
+>> ip route add 192.168.2.0/24 via 192.168.1.1
+>> route
+
+>> ip route add default via 192.168.2.1    (any internet/network)
+
+
+>> cat /proc/sys/net/ipv4/ip_forward
+>>echo 1 > /proc/sys/net/ipv4/ip_forward
+>>echo 1 > /etc/sysctl.conf
+
+Key Command:
+>> ip link : list and modify interfaces on the host
+>> ip addr : ip address assigned to those interfaces
+>> ip addr add <ip_address> dev eth0 : set ip addresses on the interface
+>> route : view routing configuration
+>> ip route add 192.168.1.0/24 via 192.168.2.1  : add route configuration
+>> cat /proc/sys/net/ipv4/ip_forward : to check ip false enabled on host
 
 
 
