@@ -66,6 +66,7 @@ care about any dependency in package.
 rpm -i telnet.rpm   Install Package
 rpm -e telnet.rpm    Uninstall Package
 rpm -q telnet.rpm    Query Package
+rpm -qa | grep key.  return all packages containing key
 
 
 RPM -----------------------> ansible
