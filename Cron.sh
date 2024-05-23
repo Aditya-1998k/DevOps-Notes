@@ -75,7 +75,7 @@ file_path = '/home/gaditya/cron/backup_file'
 dropbox_path = '/home/gaditya/cron/DROPBOX'
 
 for file in os.listdir(file_path):
-    shutil.copy(os.path.join( file_path, file), os.path.join(dropbox_path, file)
+    shutil.copy(os.path.join( file_path, file), os.path.join(dropbox_path, file))
 ______________________________________________________________________________
 
 
