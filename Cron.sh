@@ -63,9 +63,10 @@ minute (m), hour (h), day of month (dom), month (mon),
 and day of week (dow) or use '*' in these fields (for 'any').
 _____________________________
 >> watch cat hello.txt    
+>> watch -d find /home/gaditya/Downloads/
 _____________________________
 
-IT will show you live change in file every two second
+IT will show you live change in file/folder every two second
 
 =================================================
 CRON JOB TO AUTOMATE THE PROCESS WITH PYTHON
