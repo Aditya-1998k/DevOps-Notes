@@ -55,15 +55,19 @@ We can write like above file our cron job, Here * means every min/hour/day/month
 To define the time you can provide concrete values for
 minute (m), hour (h), day of month (dom), month (mon),
 and day of week (dow) or use '*' in these fields (for 'any').
+_____________________________
+>> watch cat hello.txt    
+_____________________________
 
+IT will show you live change in file every two second
 
 =================================================
 CRON JOB TO AUTOMATE THE PROCESS WITH PYTHON
 =================================================
 in folder cron
 >> touch backup_program.py
---------------------------------------------------------------------------------
-------------------------------------------------------------------------------
+
+______________________________________________________________________________
 import os
 import shutil     #works with file
 
@@ -72,9 +76,8 @@ dropbox_path = '/home/gaditya/cron/DROPBOX'
 
 for file in os.listdir(file_path):
     shutil.copy(os.path.join( file_path, file), os.path.join(dropbox_path, file)
+______________________________________________________________________________
 
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 
 Create some file in backup_file to take backup in dropbox by our python script
 To run python script in bash shell
