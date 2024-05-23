@@ -50,6 +50,12 @@ When you hit enter:
 * * * * * /bin/bash -c 'echo $RANDOM > /home/gaditya/cron/myfile.txt'
 
 ==========================================================================
+m - minute
+h - hour
+dom - day of month (date)
+mon - month (jan, feb)
+dow - day of week
+-------------------------
 We can write like above file our cron job, Here * means every min/hour/day/month etc.
 
 To define the time you can provide concrete values for
