@@ -110,6 +110,57 @@ Two common scenario:
       * This will create a given local directory containing working copy of files from repo.
         and a .git directory (used to hold the staging area and your actual local repo.)
 
+SSH
+========
+If you are cloning with ssh then you must need to generate ssh key on local computer where 
+you want to push or pull
+
+>> ssh-keygen
+   Enter the file where you want to save the ssh key (id_rsa_git_training)
+   hit enter two times
+
+   key got generated, now use public key
+
+>> cat /home/gaditya/.ssh/id_rsa_git_training.pub
+   copy this generated key
+
+   * open your profile
+   * edit profile
+   * goto ssh key
+   * add key without touching expiry date
+
+>> git log   | returns all your commits and head information
+
+Git REMOTE
+=============
+
+>> git remote -v  | show all your remote repos
+>> git remote add aditya <url>   | you can add remote repos here
+>> git remote remove aditya      | remove aditya from remote
+
+GIT COMMIT
+============
+>> git add hello.txt    | staged the file hello.txt from untracked file
+>> git add .            | stage all the untracked file
+>> git commit -m "Adding hello.txt"    | commit the change with message
+
+Revert commits:
+==============
+>> git revert <commit Hash>   | revert the mentioned commit hash
+
+>> git reset HEAD~1           | reset last 1 commit and unstage the change
+>> git checkout readme.md     | you will be checkout to unstaged readme.md file
+
+
+GIT BRANCH
+==========
+>> git branch <branch_name>    | create a new branch
+>> git checkout <branch_name>  | checkout to mentioned branch
+>> git checkout -b <branch Name>   | create and switch to mentioned branch
+>> git branch -m main      | checkout to main branch
+
+
+
 
   
 
