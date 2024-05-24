@@ -129,10 +129,18 @@ you want to push or pull
    * goto ssh key
    * add key without touching expiry date
 
+if wanted to check ssh key working or not
+---------------------------------------
+>>ssh -T git@git.zeomega.com
+  Welcome to GitLab, @gaditya!
+
+
 >> git log   | returns all your commits and head information
 
 Git REMOTE
 =============
+Create a git repository and add it through git remote so that
+you can push or pull the changes
 
 >> git remote -v  | show all your remote repos
 >> git remote add aditya <url>   | you can add remote repos here
@@ -142,7 +150,11 @@ GIT COMMIT
 ============
 >> git add hello.txt    | staged the file hello.txt from untracked file
 >> git add .            | stage all the untracked file
+>> git add --all
+>> git rm <file_name>   | to delete untracked changes
 >> git commit -m "Adding hello.txt"    | commit the change with message
+>> git show             | show the changes in the latest commit
+>> git diff             | show the difference in before and after changes
 
 Revert commits:
 ==============
@@ -158,6 +170,45 @@ GIT BRANCH
 >> git checkout <branch_name>  | checkout to mentioned branch
 >> git checkout -b <branch Name>   | create and switch to mentioned branch
 >> git branch -m main      | checkout to main branch
+
+GIT PUSH & PULL
+==============
+>> git push origin main   | push the changes to remote origin to main branch
+>> git pull origin main   | pull the latest code from main branch and merge them
+
+Important GIT command
+=====================
+>> git tag <tag_name>     | create a light weight tag eg: git tab v1.0
+>> git checkout <commit hash>   | checkout to specific commit
+>> git stash              | Temporary save the changes without commiting them
+>> git stash pop          | Unstage the last stashed changes
+>> git stash apply        | apply the most recent stashed changes
+>> git stash list         | 
+>> git merge <branch name>  | merge the changes from a branch into current branch eg: git merge develop
+>> git commit -a -m "instead of staging & commiting, directly doing"
+
+CHERRY-PICKING
+==============
+>> git cherry-pick <commit-hash>
+
+If get any conflict, then resolve the conflict with user interference
+after that add the changes
+
+>> git add --all
+>> git cherry-pick --continue
+
+if don't want to add conflict file
+
+>> git rm <file>
+>> git cherry-pick --abort 
+>> git cherry-pick --skip
+>> git status | now working log should be clean
+
+>> git show <commit hash>  | return all the changes in this commit
+
+
+
+
 
 
 
