@@ -186,6 +186,7 @@ Important GIT command
 >> git stash list         | 
 >> git merge <branch name>  | merge the changes from a branch into current branch eg: git merge develop
 >> git commit -a -m "instead of staging & commiting, directly doing"
+>> git log --oneline      | return few commits
 
 CHERRY-PICKING
 ==============
@@ -207,10 +208,132 @@ if don't want to add conflict file
 >> git show <commit hash>  | return all the changes in this commit
 
 
+GIT BRANCHING MODEL
+==================
+
+feature branch(local) ------------------> develop branch(developers push their changes)
+                                                |
+                                                |
+                                                *
+                                                release branches ------------> hot fix(production bug fix)
+                                                                                  |
+                                                                                  |
+                                                                                tag 0.1 or tag 0.2
+GIT FETCH
+=========
+>> git fetch origin develop
+  pulls data to your local repository but does not merge autometically
+  to your work
+
+>> git fetch aditya develop
+  pulls your local remote branch data but does not merge
+
+>> git push aditya develop
+   works only if you have write access to the repository
+   if someone already push the changes then pull and incorporate with that 
+   any conflicts and the push 
+
+>> git pull origin develop
+   pulls data to your work repository and merge directly to your
+   current working directory
+
+
+GIT REBASE
+==========
+suppose currently on local branch
+>> git checkout develop
+>> git pull origin develop
+>> git checkout local
+>> git rebase develop  | merge the changes of develop to local
+   if any conflicts resolve that
+
+   if wants to add --> git add <file>
+   if don't wnat --> git rm <file>
+>> git rebase --continue or git rebase --skip  or git rebase --abort
+
+fetch vs pull
+===============
+fetch                              
+------               
+fetch changes 
+from server does
+not modeify your working
+directory.
+
+with git fetch you 
+can finish editing
+your file and then commit
+file and merge your changes
+
+
+                                                
+PUll
+-----
+it will fetch from the server
+and merge it to your current 
+working directory
+
+GIT COMMIT AMMEND
+===============
+>> git logs
+  recent commit is "updated file"
+
+  suppose you want to make some more change in commit
+  and wanted to update commit message
+>> git add --all
+>> git commit --amend
+  changes the message and save
+>> git commit --amend --no-edit
+  it will commit the change without editing the existing commit
+  message
+
+
+GIT RESET HARD
+===============
+>> git reset --hard HEAD~1
+
+if you want to revert latest hard reset
+>> git reflog 
+>> git branch restore_changes <commithash>
+   it will create a new branch restore_changes with all the changes
+
+>> git log --help
+
+>> git log --after="2024-05-22"
+>> git log --before="2024-05-22"
+>> git log --grep="enhance"
+
+comparing logs of different branch
+
+>> git log origin/master..origin/develop  --oneline
+>> git log --author="gaditya"
+>> git log -- changes.txt
+
+=============================
+          GIT TAG
+==============================
+
+Tags are reference that point to specific points in 
+GIT history. Tagging is generally used to capture a 
+point in history that is used for a marked version for
+release.
+
+>> git tag    | list all tags
+>> git tag -a [tag_name] -m "message"   | Annotated tags are stores as full object
+                                          in the gitlab database
+
+>> git tag -d [tag_name]          | delete the tag
+
+
+>> git remote rm aditya   | remove aditya from remote
 
 
 
 
+
+
+
+  
 
 
   
