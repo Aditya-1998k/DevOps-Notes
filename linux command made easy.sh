@@ -281,6 +281,40 @@ In such case needs to return database
 ===========================================================
                       FILE CONTENTS
 ===========================================================
+>> cat file.txt
+return whole contents of the file
+
+>> cat -n file.txt
+return contents with line number
+
+>> head file.txt
+it will return top 10 lines by default
+
+>> head -n 20 file.txt
+return top 20 lines
+
+>> tail file.txt
+return last 10 lines by default
+
+>> tail -n 5 file.txt
+return last 5 lines
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
