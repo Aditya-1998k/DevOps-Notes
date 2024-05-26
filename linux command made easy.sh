@@ -31,10 +31,10 @@ clear the terminal
                  |boot -- containing boot system programs
                  |user -- installed software and libraries  -- bin, lib, share, include
                  |etc -- config files
-                 |home -- user data who logged in to the system |
-                 |dev                                           |
-                 
-                 
+                 |home -- user data who logged in to the system | ------------>
+                 |                                              | 
+                 |                                              | ------------>
+                 |                                             
                  |proc
           
 
