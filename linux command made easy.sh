@@ -189,14 +189,98 @@ rm: cannot remove 'folder': is a directory
 >> rm -r folder
 to remove folder in a directory
 
+======================================================
+                    wildcards
+======================================================
+Wildcards is a fast and pwoerful way to select multiple
+file at once. Here is the basic set of wildcards.
+    * represents zero or more characters
+    ? represents a single character
+    [] represents a range of characters
 
+    *    all files
+    g*   all files beginning with g
+    b*.txt  any file beginning with 'b' and ending with '.txt'
 
+>> cd /var/log
+suppose you want only '.log' file in log folder
 
+>> ls *.log
+return all files with ends with '.log'
 
+I want 4 character in a file which is ending with '.log'
 
+>> ls ????.log
+return all the files which have 4 characters
+one ? means 1 character
 
+>> ls [a,k]*.log
+return all file which is start with 'a' or 'k' and ends with '.log'
 
+copy .log file to desktop
 
+>> cp *.log ~/Desktop/
+here ~ represents home directory
+
+move all .log file in new folder1 in desktop
+>> mkdire folder1
+>> mv *.log folder1
+
+>> rm *.log 
+remove all .log files
+
+===========================================================
+                       find
+===========================================================
+>> find . -name test.txt
+return file path starting from starting point
+first Argument (.) is starting point of search -- here . means current directory
+-name   name of the file
+
+>> find . -name test.txt -delete
+it will find and delete
+
+>> find . -name folder2 -type d
+-type d mean wants to find directory not file
+it will return path of folder2
+
+>> find /var/log -vmtime -30
+return all the files which is modified in last 30 days.
+
+----------------------------------------------------
+     LOCATE (faster than find but works on db)
+----------------------------------------------------
+
+>> locate test.txt
+it will return all the file with abosulute path which ends with test.txt
+
+eg:
+/home/gaditya/Documents/test.txt
+/usr/share/box/clock_test.txt
+/etc/config/hell_test.txt
+
+>> locate -c test.txt
+return number of such files
+return 2 here
+
+>> locate -l 1 test.txt
+/home/gaditya/Documents/test.txt
+limit return to 1
+
+Suppose you just created a newfile.txt
+and it is not updated in database
+>> locate newfile.txt
+will not return any thing
+
+In such case needs to return database
+
+>> sudo updatedb
+>> locate newfile.txt
+/home/gaditya/Documents/newfile.txt
+
+===========================================================
+                      FILE CONTENTS
+===========================================================
 
 
 
