@@ -299,6 +299,114 @@ return last 10 lines by default
 >> tail -n 5 file.txt
 return last 5 lines
 
+-----------------------
+      less
+----------------------
+>> less file.txt
+return contents of file.txt
+
+Navigate line by line:
+ key up
+ key down
+
+Navigate page by page:
+b  - page up
+space - page down
+
+g --> top of the file
+G --> bottom of the file
+
+Search
+------
+/address  --> search from top
+?disconnected  --> search from bottom to up
+
+
+==========================================
+             touch
+==========================================
+>> touch file.txt
+create a file.txt
+
+>> touch file_(1..100)
+create 1 to 100 files
+eg: file_1, file_2 ... , file_100
+
+
+------------------------------
+          nano
+------------------------------
+>> nano file.txt
+you will be in text editor
+do the change
+
+search specific word:
+-------------------
+ctrl + w  and then enter the search patter
+
+quite: ctrl + x
+
+----------------------------------
+            grep
+----------------------------------
+>> grep "this" file.txt
+It will return all the lines which contains 'this'
+in file.txt
+
+>> grep 'this' demo*
+it will check all the file starting with demo
+and return file name with line contents
+
+>> grep -i 'the' file.txt
+return all the all ignoring the case of 'the'
+'the' and 'THE' both will be identified
+
+>> grep 'is' file.txt
+return all the file which contains 'is'
+    this place good boy
+    here yellow are goodis
+
+But if you want the 'is' only to be identified
+>> grep -w 'is' file.txt
+   return line which contains 'is' as word, not character in word
+
+>> grep "lines.*empty" file.txt
+   returns all the lines which is ending with lines. and nothing after that in that line
+
+=======================================================
+            top, ps, kill
+=======================================================
+>> top 
+returns which program or process consuming the cpu most
+list of all process running into the system
+
+>> ps -ef
+return all the process running on your system
+
+>> ps -ef | grep "remmina"
+returns all the process which contains 'remmina' word
+
+>> kill <pid_number>
+pid number we can get by ps and top command
+
+====================================================
+              ifconfig, ping, wget
+====================================================
+>> ifconfig
+return network information
+
+>> ping <ip address or url>
+>> ping google.com
+
+it will show mentioned ip is alive or not
+
+>> wget https://cdn.pixabay.com/photo/2023/09/02/03/15/water-8228076_1280.jpg
+download the file from mentioned url with wget
+down the file in current working directory by default
+
+
+
+
 
 
 
